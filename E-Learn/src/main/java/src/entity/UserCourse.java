@@ -30,6 +30,16 @@ public class UserCourse {
     @LastModifiedDate
     private Date updatedDate;
 
+    @ManyToOne
+    @MapsId("userId")
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @MapsId("courseId")
+    @JoinColumn(name = "course_id")
+    private Course course;
+
     @Getter
     @Setter
     @Id
