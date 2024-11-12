@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
+
 @Entity
 @Table(name = "address")
 @Getter
@@ -26,4 +29,6 @@ public class Address {
         private String street;
         @Column(name = "address_detail")
         private String addressDetail;
+        @ManyToMany(mappedBy = "address")
+        private List<User> users;
     }

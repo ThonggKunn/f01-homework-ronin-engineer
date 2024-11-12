@@ -22,6 +22,10 @@ public class FullName {
     @Column(name = "status")
     private String status;
 
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
+
     @Getter
     @Setter
     @Id

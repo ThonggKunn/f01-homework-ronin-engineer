@@ -3,6 +3,9 @@ package src.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "chapter")
 @Getter
@@ -21,8 +24,17 @@ public class Chapter{
     @Column(name = "`order`")
     private Integer order;
 
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private Course course;
+
+    @OneToMany(mappedBy = "chapter")
+    private List<Lesson> lessons = new ArrayList<>();
+
     @Getter
     @Setter
     @Id
     private Long id;
+
+
 }

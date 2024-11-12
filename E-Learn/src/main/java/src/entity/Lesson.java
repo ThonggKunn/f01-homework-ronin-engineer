@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @Entity
 @Table(name = "lesson")
 @Getter
@@ -25,6 +26,10 @@ public class Lesson{
     private String url;
     @Column(name = "`order`")
     private Integer order;
+
+    @ManyToOne
+    @JoinColumn(name = "chapter_id")
+    private Chapter chapter;
 
     @Getter
     @Setter
